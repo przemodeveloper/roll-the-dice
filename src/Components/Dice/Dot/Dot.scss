@@ -1,0 +1,20 @@
+.dot {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.second-dot {
+    align-self: flex-end;
+}
+
+.second-dot-with-third {
+    align-self: flex-end;
+    align-self: center;
+}
+
+.third-dot {
+    align-self: flex-end;
+}

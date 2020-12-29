@@ -1,0 +1,98 @@
+.dice {
+    padding: 5px;
+    border-radius: 10%;
+    background-color: black;
+    width: 200px;
+    height: 200px;
+}
+
+.starting-dice {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10%;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+}
+
+.one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.two {
+    display: flex;
+    justify-content: space-between;
+}
+
+.four {
+    display: flex;
+    justify-content: space-between;
+}
+
+.five {
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+
+    .btn-lower {
+        margin-top: 10px;
+        font-size: 25px;
+        background-color: white;
+        border-radius: 50px;
+        outline: none;
+    }
+
+    .btn-higher {
+        font-size: 25px;
+        background-color: white;
+        border-radius: 50px;
+        outline: none;
+    }
+
+    .playBtn {
+        font-size: 40px;
+        background-color: white;
+        border-radius: 50px;
+        outline: none;
+    }
+
+    .nextBtn {
+        font-size: 25px;
+        background-color: white;
+        border-radius: 50px;
+        outline: none;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .info {
+        font-size: 25px;
+    }
+}
