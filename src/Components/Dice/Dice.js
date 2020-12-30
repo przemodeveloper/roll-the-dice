@@ -19,7 +19,7 @@ const Dice = () => {
     const [stopped, setStopped] = useState(false);
     const [statistics, setStatistics] = useState(false);
     const [history, setHistory] = useState([]);
-
+    const [isSuspended, setIsSuspendend] = useState(false);
 
     const setDiceValues = async () => {
         const response = await axios.get('http://roll.diceapi.com/json/d6');
@@ -43,6 +43,28 @@ const Dice = () => {
     }
 
 
+    const onBeforeUnload = (obj) => {
+        localStorage.setItem('suspendedGameObj', JSON.stringify(obj));
+    }
+
+    const storeSuspendedGame = () => {
+
+        const suspendedGameObj = {
+            numWonRounds: wonRounds,
+            numLostRounds: lostRounds,
+            numPoints: Math.round(points * 10) / 10,
+            numRound: round
+        }
+
+        if (round == 31) {
+            localStorage.removeItem('suspendedGameObj');
+        } else {
+            window.onbeforeunload = onBeforeUnload(suspendedGameObj);
+        }
+
+    }
+
+
     useEffect(() => {
         const fetchData = () => {
             setDiceValues();
@@ -60,7 +82,7 @@ const Dice = () => {
     const stopGame = () => {
         setStopped(true);
     }
-
+    
     const compareNumbers = () => {
         if(val === computerVal) {
             setInformation('You win!')
@@ -91,11 +113,8 @@ const Dice = () => {
             }
 
             entries.push(entry);
-
             localStorage.setItem('historyGame', JSON.stringify(entries));
-
             const historyObject = JSON.parse(localStorage.getItem('historyGame'));
-
             setHistory(historyObject);
         }
     }
@@ -103,7 +122,6 @@ const Dice = () => {
     const playNextRound = () => {
         setStopped(false);
         setInformation('Higher or lower?');
-
         setDiceValues();
     }
 
@@ -117,19 +135,23 @@ const Dice = () => {
     const getHigherValue = () => {
         if(val < 6) {
             setVal(val += 1);
-            
         }
         compareNumbers();
         finishGame();
+
+        storeSuspendedGame();
+        
     }
 
     const getLowerValue = () => {
         if(val > 1) {
             setVal(val -= 1);
-            
         }
         compareNumbers();
         finishGame();
+
+        storeSuspendedGame();
+    
     }
 
 
@@ -194,9 +216,6 @@ const Dice = () => {
 
     return(
         <div className="container">
-            {/* {history.map(el => {
-                return <p>{el.roundsWon}</p>
-            })} */}
             {!isStarted ? 
                 <div>
                     {statistics ? 
@@ -205,7 +224,7 @@ const Dice = () => {
                             <p className="title">Details of your current game</p>
                             <div>
                                 <p className="stats">Rounds won: {wonRounds}</p>
-                                <p className="stats">Rounds won: {lostRounds}</p>
+                                <p className="stats">Rounds lost: {lostRounds}</p>
                             </div>
                         </div>
                         <div className="history-container">
