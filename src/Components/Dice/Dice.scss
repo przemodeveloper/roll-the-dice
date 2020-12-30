@@ -62,6 +62,7 @@
         background-color: white;
         border-radius: 50px;
         outline: none;
+        font-family: 'Zilla Slab', serif;
     }
 
     .btn-higher {
@@ -69,6 +70,7 @@
         background-color: white;
         border-radius: 50px;
         outline: none;
+        font-family: 'Zilla Slab', serif;
     }
 
     .playBtn {
@@ -76,6 +78,7 @@
         background-color: white;
         border-radius: 50px;
         outline: none;
+        font-family: 'Zilla Slab', serif;
     }
 
     .nextBtn {
@@ -83,6 +86,7 @@
         background-color: white;
         border-radius: 50px;
         outline: none;
+        font-family: 'Zilla Slab', serif;
     }
 
     .btns {
@@ -94,5 +98,38 @@
 
     .info {
         font-size: 25px;
+        font-family: 'Zilla Slab', serif;
     }
+
+    .counter {
+        font-size: 20px;
+        font-family: 'Zilla Slab', serif;
+    }
+
+    .stats {
+        font-size: 20px;
+        font-family: 'Zilla Slab', serif;
+    }
+
+    .inner-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .title {
+        font-size: 30px;
+        font-family: 'Zilla Slab', serif;
+    }
+
+    .inner-container div {
+        margin: 20px;
+    }
+
+    .history {
+        font-size: 20px;
+        font-family: 'Zilla Slab', serif;
+    }
+
+
 }

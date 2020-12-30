@@ -3,7 +3,7 @@ import './Dot.scss';
 
 const Dot = (props) => {
     return(
-        <span className={`dot ${props.style}`}></span>
+        <span className={`dot ${props.dotStyle}`}></span>
     )
 }
 
