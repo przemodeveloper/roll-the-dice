@@ -72,12 +72,29 @@ const Dice = () => {
         fetchData();
 
         const historyObject = JSON.parse(localStorage.getItem('historyGame'));
+        const suspendedGameObject = JSON.parse(localStorage.getItem('suspendedGameObj'));
 
         if(historyObject !== null) {
             setHistory(historyObject);
         }
 
+        if(suspendedGameObject !== null) {
+            setIsSuspendend(true);
+        }
+
     }, [])
+
+    const restorePreviousGame = () => {
+
+        const suspendedGameObject = JSON.parse(localStorage.getItem('suspendedGameObj'));
+
+        setIsStarted(true);
+        setInformation('Higher or lower?');
+        setWonRounds(suspendedGameObject.numWonRounds);
+        setLostRounds(suspendedGameObject.numLostRounds);
+        setRound(suspendedGameObject.numRound);
+        setPoints(suspendedGameObject.numPoints);
+    }
 
     const stopGame = () => {
         setStopped(true);
@@ -104,6 +121,7 @@ const Dice = () => {
             setStatistics(true);
             setRound(1);
             setPoints(0);
+            setIsSuspendend(false);
 
             let entries = [...history];
 
@@ -151,12 +169,10 @@ const Dice = () => {
         finishGame();
 
         storeSuspendedGame();
-    
     }
 
 
-    let structure = <div className="starting-dice">
-    </div>;
+    let structure = null;
 
     if (val === 1) {
         structure = <div className="dice one">
@@ -241,7 +257,14 @@ const Dice = () => {
                         </div>
                     </div> : 
                     null}
-                    <button className="playBtn" onClick={playGame}>Play Game!</button>
+
+                    {!isSuspended ? <button className="playBtn" onClick={playGame}>Play Game!</button> : 
+                    <div>
+                        <button className="playBtn" onClick={restorePreviousGame}>Resume Previous Game!</button>
+                        <p className="counter">or</p>
+                        <button className="playBtn" onClick={playGame}>Play New Game!</button>
+                    </div>
+                    }
                 </div> : 
             <div className="container">
                 <p className="info">{information}</p>
