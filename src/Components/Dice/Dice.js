@@ -49,14 +49,16 @@ const Dice = () => {
 
     const storeSuspendedGame = () => {
 
+        const pts = Math.round(points * 10) / 10;
+
         const suspendedGameObj = {
             numWonRounds: wonRounds,
             numLostRounds: lostRounds,
-            numPoints: Math.round(points * 10) / 10,
+            numPoints: pts,
             numRound: round
         }
 
-        if (round == 31) {
+        if (round === 31) {
             localStorage.removeItem('suspendedGameObj');
         } else {
             window.onbeforeunload = onBeforeUnload(suspendedGameObj);
@@ -260,9 +262,11 @@ const Dice = () => {
 
                     {!isSuspended ? <button className="playBtn" onClick={playGame}>Play Game!</button> : 
                     <div>
-                        <button className="playBtn" onClick={restorePreviousGame}>Resume Previous Game!</button>
-                        <p className="counter">or</p>
-                        <button className="playBtn" onClick={playGame}>Play New Game!</button>
+                        <p className="title">Reload the previous game?</p>
+                        <div className="suspended-container">
+                            <button className="playBtn" onClick={restorePreviousGame}>Yes</button>
+                            <button className="playBtn" onClick={playGame}>No</button>
+                        </div>
                     </div>
                     }
                 </div> : 

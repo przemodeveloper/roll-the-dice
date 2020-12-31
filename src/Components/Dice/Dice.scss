@@ -64,6 +64,18 @@
         font-family: 'Zilla Slab', serif;
     }
 
+    .btn-higher:hover {
+        color: white;
+        background-color: black;
+        transition: all 0.3s;
+    }
+
+    .btn-lower:hover {
+        color: white;
+        background-color: black;
+        transition: all 0.3s;
+    }
+
     .playBtn {
         font-size: 40px;
         background-color: white;
@@ -72,12 +84,24 @@
         font-family: 'Zilla Slab', serif;
     }
 
+    .playBtn:hover {
+        color: white;
+        background-color: black;
+        transition: all 0.5s;
+    }
+
     .nextBtn {
         font-size: 25px;
         background-color: white;
         border-radius: 50px;
         outline: none;
         font-family: 'Zilla Slab', serif;
+    }
+
+    .nextBtn:hover {
+        color: white;
+        background-color: black;
+        transition: all 0.3s;
     }
 
     .btns {
@@ -121,5 +145,17 @@
         font-size: 20px;
         font-family: 'Zilla Slab', serif;
     }
-    
+
+    .suspended-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .suspended-container button{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
 }
