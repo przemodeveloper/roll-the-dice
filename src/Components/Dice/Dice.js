@@ -126,10 +126,12 @@ const Dice = () => {
             setIsSuspendend(false);
 
             let entries = [...history];
+            const pts = Math.round(points * 10) / 10;
 
             const entry = {
                 roundsWon: wonRounds,
-                roundsLost: lostRounds
+                roundsLost: lostRounds,
+                numPoints: pts,
             }
 
             entries.push(entry);
@@ -252,6 +254,7 @@ const Dice = () => {
                                     <div>
                                         <p className="stats">Rounds won: {el.roundsWon}</p>
                                         <p className="stats">Rounds lost: {el.roundsLost}</p>
+                                        <p className="stats">Number of points: {el.numPoints}</p>
                                         <hr/>
                                     </div>
                                 )
