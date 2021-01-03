@@ -2,7 +2,7 @@
 Roll the dice
 
 ## Description
-When game starts, computer gets a random dice number http://roll.diceapi.com/. Player has to choose whether the dice number displayed on a screen is higher or lower. If he/she chooses an option that matches a number drawn by the computer, player gets 0.1 point.
+When game starts, computer gets a random dice number from http://roll.diceapi.com/. Player has to choose whether the dice number displayed on a screen is higher or lower. If he/she chooses an option that matches a number drawn by the computer, player gets 0.1 point.
 
 - Dice is represented by html/css code
 - There are 30 rounds
