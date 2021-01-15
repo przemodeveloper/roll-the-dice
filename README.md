@@ -17,5 +17,6 @@ Completed
 React
 
 ## Launch
-1. npm install
-2. npm start / yarn start
+1. clone repository
+2. npm install
+3. npm start / yarn start
